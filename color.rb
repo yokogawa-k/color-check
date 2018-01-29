@@ -14,7 +14,8 @@ HEATMAP_PROGRESSION = [
 
 # Return the text supplied with ANSI 256-color coloring applied.
 def ansi_color(color, text)
-  "\x1b[38;5;#{color}m#{text}\x1b[0m"
+  #"\x1b[38;5;#{color}m#{text}\x1b[0m"
+  "\e[38;5;#{color}m#{text}\e[0m"
 end
 
 # Zero and 1/8 through 8/8 illustrations.
