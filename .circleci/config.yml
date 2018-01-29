@@ -10,7 +10,14 @@ jobs:
           name: check TERM
           command: |
             echo ${TERM}
+      - run:
+          name: check echo color
+          command: |
             echo -e "\e[31mhoge\e[m"
+      - run:
+          name: check ruby color
+          command: |
+            docker run -it --rm -v ${PWD}:/work -w /work ruby:alpine ruby ./color.rb
 
 workflows:
   version: 2
