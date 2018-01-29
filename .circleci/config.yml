@@ -15,9 +15,13 @@ jobs:
           command: |
             echo -e "\e[31mhoge\e[m"
       - run:
-          name: check ruby color
+          name: check ruby color with alpine
           command: |
             docker run -it --rm -v ${PWD}:/work -w /work ruby:alpine ruby ./color.rb
+      - run:
+          name: check ruby color with debian
+          command: |
+            docker run -it --rm -v ${PWD}:/work -w /work ruby ruby ./color.rb
 
 workflows:
   version: 2
