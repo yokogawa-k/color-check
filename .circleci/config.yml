@@ -1,0 +1,20 @@
+version: 2
+
+# https://circleci.com/blog/how-to-build-a-docker-image-on-circleci-2-0/
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: check TERM
+          command: |
+            echo ${TERM}
+            echo -e "\e[31mhoge\e[m"
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+
